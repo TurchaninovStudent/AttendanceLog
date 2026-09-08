@@ -1,8 +1,9 @@
-﻿using AttendanceLog.Logic.Services;
+﻿using AttendanceLog.Data.Repositories;
+using AttendanceLog.Logic.Services;
 
 Console.WriteLine("Учёт посещаемости студентов AttendanceLog, Турчанинов Андрей");
 
-var service = new VisitService();
+var service = new VisitService(new VisitRepository());
 
 Console.WriteLine("Отсутствующие студенты:");
 

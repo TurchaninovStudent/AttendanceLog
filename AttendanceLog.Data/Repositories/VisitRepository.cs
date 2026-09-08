@@ -1,11 +1,10 @@
-﻿using AttendanceLog.Data.Models;
+﻿using AttendanceLog.Logic.Interfaces;
+using AttendanceLog.Logic.Models;
 
 namespace AttendanceLog.Data.Repositories;
 
-/// <summary>
-/// Репозиторий для <see cref="Visit"/>
-/// </summary>
-public class VisitRepository
+/// <inheritdoc cref="IVisitRepository"/>
+public class VisitRepository : IVisitRepository
 {
     private readonly List<Visit> items =
     [
@@ -29,9 +28,5 @@ public class VisitRepository
         }
     ];
 
-    /// <summary>
-    /// Получить все посещения
-    /// </summary>
-    /// <returns></returns>
-    public List<Visit> GetAll() => items;
+    List<Visit> IVisitRepository.GetAll() => items;
 }

@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AttendanceLog.Logic\AttendanceLog.Logic.csproj" />
+    <ProjectReference Include="..\AttendanceLog.Data\AttendanceLog.Data.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
