@@ -1,5 +1,5 @@
-﻿using AttendanceLog.Data.Models;
-using AttendanceLog.Data.Repositories;
+﻿using AttendanceLog.Logic.Interfaces;
+using AttendanceLog.Logic.Models;
 
 namespace AttendanceLog.Logic.Services;
 
@@ -8,13 +8,21 @@ namespace AttendanceLog.Logic.Services;
 /// </summary>
 public class VisitService
 {
-    private readonly VisitRepository repository = new();
+    private readonly IVisitRepository visitRepository;
+
+    /// <summary>
+    /// Инициализирует новый экземпляр <see cref="VisitService"/>
+    /// </summary>
+    public VisitService(IVisitRepository visitRepository)
+    {
+        this.visitRepository = visitRepository;
+    }
 
     /// <summary>
     /// Получить всех отсутствующих
     /// </summary>
     public List<Visit> GetAbsent()
-        => repository.GetAll()
+        => visitRepository.GetAll()
             .Where(item => !item.WasPresent)
             .ToList();
 }
