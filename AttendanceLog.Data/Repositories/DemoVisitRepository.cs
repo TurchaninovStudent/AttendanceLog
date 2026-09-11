@@ -18,5 +18,8 @@ public class DemoVisitRepository : IVisitRepository
         },
     ];
 
+    void IVisitRepository.Add(Visit visit)
+        => throw new NotImplementedException();
+
     List<Visit> IVisitRepository.GetAll() => items;
 }

@@ -28,5 +28,8 @@ public class VisitRepository : IVisitRepository
         }
     ];
 
+    void IVisitRepository.Add(Visit visit)
+        => items.Add(visit);
+
     List<Visit> IVisitRepository.GetAll() => items;
 }
