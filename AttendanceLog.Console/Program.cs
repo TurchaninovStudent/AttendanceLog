@@ -17,9 +17,9 @@ Console.WriteLine($"Хранилище: {kind}");
 
 var service = new VisitService(repository);
 
-//Console.Write("Посещения нового студента: ");
-//var student = Console.ReadLine() ?? "";
-//service.AddVisit(student, wasPresent: true);
+Console.Write("Посещения нового студента: ");
+var student = Console.ReadLine() ?? "";
+service.AddVisit(student, wasPresent: true);
 
 Console.WriteLine("Отсутствующие студенты:");
 
