@@ -11,4 +11,9 @@ public interface IVisitRepository
     /// Получить все посещения
     /// </summary>
     List<Visit> GetAll();
+
+    /// <summary>
+    /// Добавить запись о посещении
+    /// </summary>
+    void Add(Visit visit);
 }

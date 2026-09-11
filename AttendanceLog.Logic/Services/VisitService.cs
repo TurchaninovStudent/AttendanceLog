@@ -25,4 +25,32 @@ public class VisitService
         => visitRepository.GetAll()
             .Where(item => !item.WasPresent)
             .ToList();
+
+    /// <summary>
+    /// Добавить запись о посещяемости
+    /// </summary>
+    public void AddVisit(string student, bool wasPresent)
+    {
+        if (string.IsNullOrWhiteSpace(student))
+        {
+            return;
+        }
+        int nextId = visitRepository.GetAll().Count + 1;
+        visitRepository.Add(new Visit
+        {
+            Id = nextId,
+            Student = student,
+            WasPresent = wasPresent
+        });
+    }
+
+    /// <summary>
+    /// Получить долю пропусков в проценте
+    /// </summary>
+    public float GetAbsencePersentage()
+    {
+        var all = visitRepository.GetAll();
+        var absenceCount = all.Where(x => !x.WasPresent).Count();
+        return ((float)absenceCount / (float)all.Count);
+    }
 }
